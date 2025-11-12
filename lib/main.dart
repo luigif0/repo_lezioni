@@ -1,25 +1,24 @@
+import 'package:esempiotodo/UI/pages/HomePage.dart';
+import 'package:esempiotodo/model/utils/Constants.dart';
 import 'package:flutter/material.dart';
-import 'package:ese_app_web/model/utils/Costants.dart';
-import 'package:ese_app_web/model/Model.dart';
-import 'package:ese_app_web/UI/pages/HomePage.dart';
+
 
 void main() {
-  // Istanzio il Model una volta e lo passo in giù
-  final model = Model();
-  runApp(MyApp(model: model));
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  final Model model;
-  const MyApp({super.key, required this.model});
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: Costants.appName,
-      theme: Costants.theme,
-      home: HomePage(model: model),
-      debugShowCheckedModeBanner: false,
+      title: Constants.appName,
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        useMaterial3: true,
+      ),
+      home: const HomePage(title: Constants.appName),
     );
   }
 }
